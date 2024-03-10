@@ -1,0 +1,7 @@
+{
+    "bot_token": "ABCDEF1234567890",
+    "prefix": "!",
+    "log_channel_id": "1234567890",
+    "error_channel_id": "1234567890",
+    "owner_id": "1234567890",
+}
