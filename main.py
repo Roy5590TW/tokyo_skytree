@@ -53,7 +53,7 @@ async def load(ctx, extension):
         return
 
     try:
-        await bot.load_extension(f"cogs.{extension}")
+        await bot.load_extension(f"commands.{extension}")
         await ctx.send(f"Loaded {extension} done.")
         await log_channel.send(f"{ctx.author} Loaded {extension} done.")
     except Exception as e:
@@ -67,7 +67,7 @@ async def unload(ctx, extension):
         return
 
     try:
-        await bot.unload_extension(f"cogs.{extension}")
+        await bot.unload_extension(f"commands.{extension}")
         await ctx.send(f"UnLoaded {extension} done.")
         await log_channel.send(f"{ctx.author} UnLoaded {extension} done.")
     except Exception as e:
@@ -81,7 +81,7 @@ async def reload(ctx, extension):
         return
 
     try:
-        await bot.reload_extension(f"cogs.{extension}")
+        await bot.reload_extension(f"commands.{extension}")
         await ctx.send(f"ReLoaded {extension} done.")
         await log_channel.send(f"{ctx.author} ReLoaded {extension} done.")
     except Exception as e:
@@ -92,9 +92,9 @@ async def reload(ctx, extension):
 
 # 一開始bot開機需載入全部程式檔案
 async def load_extensions():
-    for filename in os.listdir("./cogs"):
+    for filename in os.listdir("./commands"):
         if filename.endswith(".py"):
-            await bot.load_extension(f"cogs.{filename[:-3]}")
+            await bot.load_extension(f"commands.{filename[:-3]}")
 
 
 
