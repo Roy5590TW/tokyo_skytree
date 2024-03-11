@@ -49,6 +49,18 @@ class basic(commands.Cog):
         await ctx.send(f'{member.display_avatar}')
         await log_channel.send(f'{ctx.author} used command >avatar to get avatar in {ctx.channel.mention}')
         await log_channel.send(f'{member.display_avatar}')
+    
+    @commands.command(name='invite', brief='Invite the bot to your server')
+    async def invite(self, ctx):
+        try:
+            invite_embed = discord.Embed(title="Invite me to your server!")
+            invite_button = discord.ui.Button(style=discord.ButtonStyle.link, label="Invite",
+                                              url="https://discord.com/oauth2/authorize?client_id=1210241148002635807&permissions=0&scope=bot")
+            action_row = discord.ui.ActionRow(invite_button)
+            await ctx.send(embed=invite_embed, components=[action_row])
+        except Exception as e:
+            await ctx.send(f'Error: {e}')
+
 
 
 # Cog 載入 Bot 中
